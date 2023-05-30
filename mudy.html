@@ -1,0 +1,15 @@
+```php
+// Connect to your MySQL database using PDO here
+
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password1 = $_POST['<PASSWORD>'];
+$password2 = $_POST['<PASSWORD>_confirm'];
+
+if ($password1!==$password2) {
+    echo "Passwords do not match";
+    return;
+}
+
+$stmt = $pdo->prepare("INSERT INTO users (username, email, password_hash) VALUES (:username, :email, :password)");
+$stmt->execute['
